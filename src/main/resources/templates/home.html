@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Spring Boot Thymeleaf Hello World Example</title>
+    <title>SPWrites</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <link rel="stylesheet" type="text/css"
@@ -13,19 +13,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">SPWrites</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="home">Home</a></li>
-                <li><a href="about-me.html">About Me</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<div th:replace="header :: header"></div>
 
 <div class="container">
 
