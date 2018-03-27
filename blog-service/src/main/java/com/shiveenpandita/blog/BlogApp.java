@@ -1,12 +1,12 @@
-package com.shiveenpandita.blog.blogservice;
+package com.shiveenpandita.blog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BlogserviceApplication {
+public class BlogApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(BlogserviceApplication.class, args);
+        SpringApplication.run(BlogApp.class, args);
     }
 }

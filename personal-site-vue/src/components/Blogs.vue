@@ -1,9 +1,8 @@
 <template>
   <div>
     <navbar></navbar>
-    <h1>Insert blog here</h1>
+    <span>{{}}</span>
   </div>
-
 </template>
 
 <script>
@@ -11,7 +10,14 @@
 
   export default {
     components: {Navbar},
-    name: "blogs"
+    name: "blogs",
+
+    data() {
+      return {
+        message: 'hello'
+      }
+    },
+    computed: {}
   }
 
 </script>
