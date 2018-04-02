@@ -3,11 +3,15 @@ package com.shiveenpandita.blog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @Controller
 @RequestMapping(path = "/api/blog")
 public class BlogController {
@@ -22,14 +26,15 @@ public class BlogController {
 
     @PostMapping("/saveBlog")
     public @ResponseBody
-    Blog saveBlog(@RequestBody Blog blog) {
+    ResponseEntity<Blog> saveBlog(@RequestBody Blog blog) {
         Blog blogToSave = new Blog();
         blogToSave.setTitle(blog.getTitle());
         blogToSave.setBody(blog.getBody());
-        logger.info("About to save the received blog {}", blog);
+        blogToSave.setModifiedDtTm(LocalDateTime.now());
+        logger.info("About to save the received blog {}", blogToSave);
         Blog blogSaved = blogRepository.save(blogToSave);
         logger.info("Saved the blog entry {}", blogSaved);
-        return blogSaved;
+        return new ResponseEntity<>(blogSaved, HttpStatus.OK);
     }
 
     @GetMapping("/getAllBlogs")

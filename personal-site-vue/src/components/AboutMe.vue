@@ -63,10 +63,6 @@
     text-align: left;
   }
 
-  #myimg {
-    /*display: block;*/
-    /*margin: 0 auto;*/
-  }
 
   h5 {
     text-align: left;

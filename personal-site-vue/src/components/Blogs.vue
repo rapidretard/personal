@@ -1,7 +1,7 @@
 <template>
   <div>
     <navbar></navbar>
-    <span>{{}}</span>
+    <a href="/#/add-new-blog" class="btn btn-info" role="button">Add New Blog</a>
   </div>
 </template>
 
