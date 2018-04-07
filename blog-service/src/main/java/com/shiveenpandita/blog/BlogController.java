@@ -24,7 +24,7 @@ public class BlogController {
         this.blogRepository = blogRepository;
     }
 
-    @PostMapping("/saveBlog")
+    @PostMapping("saveBlog")
     public @ResponseBody
     ResponseEntity<Blog> saveBlog(@RequestBody Blog blog) {
         Blog blogToSave = new Blog();
@@ -37,18 +37,42 @@ public class BlogController {
         return new ResponseEntity<>(blogSaved, HttpStatus.OK);
     }
 
-    @GetMapping("/getAllBlogs")
+    @GetMapping("getAllBlogs")
     public @ResponseBody
     List<Blog> getAllBlogs() {
         logger.info("Returning all blogs");
         return blogRepository.findAll();
     }
 
-    @GetMapping("/getBlogByTitle")
+    @GetMapping("getBlogByTitle")
     public @ResponseBody
-    List<Blog> getByTitle(@RequestParam String title) {
+    List<Blog> getByTitle(@RequestParam(value = "title") String title) {
         logger.info("Getting all blogs with title {}", title);
         return blogRepository.findByTitle(title);
+    }
+
+    @PostMapping("deleteBlogById")
+    public ResponseEntity<HttpStatus> deleteBlogById(@RequestParam(value = "id") String id){
+        try {
+            blogRepository.deleteBlogById(id);
+            logger.info("Successfully deleted post with Id {}", id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            logger.error("Error deleting blog with id {}", id, e);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PostMapping("deleteBlogByTitle")
+    public ResponseEntity<HttpStatus> deleteBlogByTitle(@RequestParam(value = "title") String title){
+        try {
+            blogRepository.deleteBlogByTitle(title);
+            logger.info("Successfully deleted post with title {}", title);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            logger.error("Error deleting blog with title {}", title, e);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
 

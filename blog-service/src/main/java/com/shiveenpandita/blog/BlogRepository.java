@@ -6,8 +6,12 @@ import java.util.List;
 
 public interface BlogRepository extends MongoRepository<Blog, String> {
 
-    public List<Blog> findByTitle(String title);
+    List<Blog> findByTitle(String title);
 
-    public List<Blog> findAll();
+    List<Blog> findAll();
+
+    void deleteBlogById(String id);
+
+    void deleteBlogByTitle(String title);
 
 }

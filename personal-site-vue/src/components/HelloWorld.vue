@@ -1,14 +1,22 @@
 <template>
   <div>
-    <navbar></navbar>
+    <div>
+      <blogs></blogs>
+    </div>
+    <div>
+      <a href="/#/post" class="hyperlink">go</a>
+    </div>
   </div>
 </template>
 
 <script>
   import Navbar from "./NavBar";
+  import Blogs from "./Blogs";
 
   export default {
-    components: {Navbar},
+    components: {
+      Blogs,
+      Navbar},
     name: 'HelloWorld'
   }
 

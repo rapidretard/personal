@@ -10,12 +10,15 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^1.0.0-beta.1",
     "axios": "^0.18.0",
+    "jodit": "^3.1.83",
     "prismic-dom": "^2.0.6",
     "prismic-javascript": "^1.5.0-beta.2",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
-    "vue2-editor": "^2.4.2"
+    "vue2-editor": "^2.4.2",
+    "vue2-medium-editor": "^1.1.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
